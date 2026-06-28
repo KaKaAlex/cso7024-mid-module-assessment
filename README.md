@@ -22,7 +22,7 @@ environment is recommended but not required.
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate        # on Windows: .venv\Scripts\activate
+source .venv/bin/activate        # on Windows: .venv\\Scripts\\activate
 pip install -r requirements.txt
 ```
 
@@ -52,7 +52,7 @@ taskmanager/
   core.py     the task operations (add, complete, remove, load, save)
   cli.py      the command-line interface
 tests/
-  test_core.py   tests for the existing operations
+  test\_core.py   tests for the existing operations
 requirements.txt
 ```
 
@@ -62,40 +62,51 @@ Add the ability to give each task a **priority** and to list only the tasks that
 match a chosen priority. Implement it exactly as specified below, because the
 function names and behaviour are what the marker will look for.
 
-**1. Extend `add_task` in `taskmanager/core.py`.**
+**1. Extend `add\_task` in `taskmanager/core.py`.**
 Change its signature to:
 
 ```python
-def add_task(tasks: list[dict], title: str, priority: str = "medium") -> list[dict]:
+def add\_task(tasks: list\[dict], title: str, priority: str = "medium") -> list\[dict]:
 ```
 
-- `priority` must be one of `"high"`, `"medium"` or `"low"`.
-- If any other value is given, raise a `ValueError`.
-- Store the chosen priority on the new task under a `"priority"` key, alongside
-  the existing `id`, `title` and `done` fields.
-- When `priority` is not supplied it defaults to `"medium"`, so the existing
-  tests, which call `add_task(tasks, "Title")`, must still pass.
+* `priority` must be one of `"high"`, `"medium"` or `"low"`.
+* If any other value is given, raise a `ValueError`.
+* Store the chosen priority on the new task under a `"priority"` key, alongside
+the existing `id`, `title` and `done` fields.
+* When `priority` is not supplied it defaults to `"medium"`, so the existing
+tests, which call `add\_task(tasks, "Title")`, must still pass.
 
-**2. Add a new function `tasks_with_priority` in `taskmanager/core.py`:**
+**2. Add a new function `tasks\_with\_priority` in `taskmanager/core.py`:**
 
 ```python
-def tasks_with_priority(tasks: list[dict], priority: str) -> list[dict]:
+def tasks\_with\_priority(tasks: list\[dict], priority: str) -> list\[dict]:
 ```
 
-- Return a new list containing only the tasks whose `"priority"` equals the
-  given `priority`, in their original order.
-- Do not modify the input list.
+* Return a new list containing only the tasks whose `"priority"` equals the
+given `priority`, in their original order.
+* Do not modify the input list.
 
 **3. Update the command-line interface in `taskmanager/cli.py`.**
 
-- Give the `add` command an optional `--priority` argument (one of `high`,
-  `medium`, `low`, defaulting to `medium`) and pass it through to `add_task`.
-- Give the `list` command an optional `--priority` argument that, when supplied,
-  shows only the matching tasks (use `tasks_with_priority`).
+* Give the `add` command an optional `--priority` argument (one of `high`,
+`medium`, `low`, defaulting to `medium`) and pass it through to `add\_task`.
+* Give the `list` command an optional `--priority` argument that, when supplied,
+shows only the matching tasks (use `tasks\_with\_priority`).
 
 **4. Add at least one new automated test** for the feature, in its own test file
-(for example `tests/test_priority.py`). Cover both adding a task with a priority
+(for example `tests/test\_priority.py`). Cover both adding a task with a priority
 and filtering by priority, and check that an invalid priority raises `ValueError`.
 
 Keep your change small and focused, and make sure the existing tests in
-`tests/test_core.py` still pass.
+`tests/test\_core.py` still pass.
+
+
+
+
+
+Priority Feature
+
+
+
+This version of the task manager supports task priority values. Tasks can be assigned a priority so that important tasks can be identified and tested separately.
+
