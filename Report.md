@@ -1,26 +1,25 @@
 CSO7024 Mid-Module Assessment Rationale
 a) Approach and Git Workflow
 
-I organised my work into a series of small, logical steps to keep the development process structured and easy to follow.
+I organised my work into a series of logical steps to keep the development process structured and easy to follow.
 
 Downloaded the starter project from Canvas.
 Extracted the project files.
 Installed the required Python dependencies.
 Ran the existing automated tests to confirm the starter project worked correctly.
+Implemented the required priority feature.
+Wrote automated tests for the new functionality and confirmed that all existing tests still passed.
 Initialised a local Git repository.
-Implemented the required priority feature by adding a priority attribute (high, medium and low) and the ability to filter tasks by priority.
-Wrote new automated tests for the priority feature and ensured all existing tests continued to pass.
 Made the initial commit containing the completed priority feature.
-Created a feature branch (priority-feature) for further development.
+Created a feature branch (priority-feature) for subsequent development activities.
 Updated the README to document the new feature.
 Merged the feature branch back into the main branch.
-Created and resolved a merge conflict to demonstrate conflict resolution in Git.
+Created and resolved a merge conflict.
 Added a GitHub Actions workflow to automatically run the test suite.
-Pushed the completed repository to GitHub and verified that the CI workflow completed successfully.
-Added an additional task search feature as a separate enhancement and recorded it in its own commit.
+Pushed the repository to GitHub and verified that the CI workflow completed successfully.
+Added a task search feature as an additional enhancement in a separate commit.
 
-This workflow demonstrates good version control practice because each commit represents a meaningful stage of development, while feature branching isolated changes from the main branch until they were complete and tested. Keeping the commit history small and descriptive makes the repository easier to review and maintain.
-
+Because the starter project was supplied as a ZIP archive, I extracted the project and completed the required feature before initialising Git. I therefore began version control after the implementation was complete. Following my lecturer's guidance, I retained the repository because it still demonstrates a clear and logical Git workflow, including meaningful commits, feature branching, merging, conflict resolution and Continuous Integration.
 b) Continuous Integration (CI) Workflow Design
 
 I selected GitHub Actions because it integrates directly with GitHub and is widely used in modern software development. I created a workflow that automatically runs whenever code is pushed to the repository. The workflow checks out the repository, installs the project's dependencies, and executes the automated pytest test suite.
