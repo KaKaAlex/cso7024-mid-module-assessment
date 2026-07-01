@@ -1,26 +1,40 @@
 CSO7024 Mid-Module Assessment Rationale
 a) Approach and Git Workflow
 
-I began by downloading the starter project, installing the required dependencies, and confirming that the existing tests passed before making any changes. I then implemented the required task priority feature and added a new automated test to verify the functionality. Throughout the development process, I used Git to record my work and created a dedicated feature branch (priority-feature) to separate the new functionality from the main branch. Once the feature had been completed and verified, I merged the feature branch back into the main branch and pushed the updated repository to GitHub.
+I organised my work into a series of small, logical steps to keep the development process structured and easy to follow.
 
-My commit history records the main stages of development with descriptive commit messages, making it easier to understand how the project evolved. During this assignment I did not encounter a merge conflict because I was the only developer working on the repository and all changes were made within a single feature branch before being merged. By keeping development isolated and merging only after testing, conflicting changes to the same files were avoided.
+Downloaded the starter project from Canvas.
+Extracted the project files.
+Installed the required Python dependencies.
+Ran the existing automated tests to confirm the starter project worked correctly.
+Initialised a local Git repository.
+Implemented the required priority feature by adding a priority attribute (high, medium and low) and the ability to filter tasks by priority.
+Wrote new automated tests for the priority feature and ensured all existing tests continued to pass.
+Made the initial commit containing the completed priority feature.
+Created a feature branch (priority-feature) for further development.
+Updated the README to document the new feature.
+Merged the feature branch back into the main branch.
+Created and resolved a merge conflict to demonstrate conflict resolution in Git.
+Added a GitHub Actions workflow to automatically run the test suite.
+Pushed the completed repository to GitHub and verified that the CI workflow completed successfully.
+Added an additional task search feature as a separate enhancement and recorded it in its own commit.
+
+This workflow demonstrates good version control practice because each commit represents a meaningful stage of development, while feature branching isolated changes from the main branch until they were complete and tested. Keeping the commit history small and descriptive makes the repository easier to review and maintain.
 
 b) Continuous Integration (CI) Workflow Design
 
-I chose GitHub Actions as the Continuous Integration (CI) platform because it integrates directly with GitHub repositories and is straightforward to configure. I created a workflow file inside the .github/workflows directory that automatically runs whenever code is pushed to the repository or a pull request is created.
+I selected GitHub Actions because it integrates directly with GitHub and is widely used in modern software development. I created a workflow that automatically runs whenever code is pushed to the repository. The workflow checks out the repository, installs the project's dependencies, and executes the automated pytest test suite.
 
-The workflow first checks out the repository, installs Python and the project dependencies listed in requirements.txt, and then executes the automated tests using pytest. If any test fails, GitHub Actions reports the failure immediately. If all tests pass, the workflow is marked as successful. This provides continuous verification that the application remains functional after every change without requiring manual execution of the test suite.
+This automation removes the need to manually execute the same verification steps after every change. Every push receives immediate feedback showing whether the application still builds successfully and whether all tests pass. A successful workflow execution in the GitHub Actions tab provides evidence that the Continuous Integration pipeline is functioning correctly and that the project remains in a working state.
 
 c) DevOps Principles Applied
 
-This assignment demonstrates several important DevOps principles. The first is automation, as GitHub Actions automatically performs testing after each push instead of relying on manual testing. Automation improves consistency and reduces the possibility of human error.
+This project demonstrates several important DevOps principles introduced during the module. Automation is demonstrated through the GitHub Actions workflow, which automatically builds and tests the application whenever code is pushed. Fast feedback is achieved because test failures are reported immediately, allowing defects to be identified before further development continues.
 
-The assignment also demonstrates fast feedback. The CI pipeline quickly reports whether new changes have introduced any problems, allowing issues to be identified and corrected early. In addition, implementing only one small feature in a dedicated branch reflects the DevOps principle of small batch sizes, making development easier to understand, review and maintain.
-
-These practices are consistent with the CALMS model introduced in the module, particularly the principles of Automation, Measurement through automated test results, and Sharing, as GitHub provides a shared repository with a clear development history.
+The project also follows the principle of small batch sizes by implementing one main feature at a time and recording each logical change as an individual Git commit. Using a feature branch isolates development from the main branch until the work is complete and tested, reducing the risk of introducing unstable code. These practices align with the CALMS model by encouraging automation, collaboration through version control, continuous improvement, and maintaining a reliable software development process.
 
 d) Limitations and Next Steps
 
-Although the required functionality was successfully implemented, there are several areas that could be improved. The application currently supports only three priority levels and has a limited number of automated tests. Additional test cases, including edge cases and invalid inputs, would improve confidence in the software's reliability.
+The application remains a simple command-line task manager and currently provides only basic functionality. Although the priority feature satisfies the assessment requirements and the additional search feature improves usability, the application could be extended further. For example, future improvements could include editing existing tasks, supporting multiple search filters, adding task due dates, or providing sorting by priority and completion status.
 
-The CI workflow currently focuses only on installing dependencies and running tests. If more time were available, I would extend the workflow by adding code quality tools such as a linter and code formatter, together with additional automated checks. For the Final Project, I also expect to apply more advanced DevOps practices, including containerisation with Docker and automated deployment, allowing the complete software delivery pipeline to be automated.
+The current automated tests mainly verify the core functionality and do not cover every possible edge case. Additional testing, including integration testing and more comprehensive validation, would further improve software quality. For the final project, I expect to build upon these DevOps practices by developing a larger application with more advanced automation, infrastructure management, and deployment techniques while continuing to use Git and Continuous Integration throughout development.
